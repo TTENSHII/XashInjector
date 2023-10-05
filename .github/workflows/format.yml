@@ -1,0 +1,29 @@
+name: Run clang-format
+
+on: [push, pull_request]
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: sudo apt-get install -y clang-format
+
+    - name: Code Formatter
+      run: find src/ -regex '.*\.\(cpp\|hpp\)' -exec clang-format -style=file -i {} \;
+
+    - name: Push changes
+      run: |
+        if [[ -n "$(git diff)" ]]; then
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git remote set-url origin 'https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}'
+          git commit -a -m "Formatting code"
+          git push
+        else
+          echo "No formatting changes detected."
+        fi

@@ -1,0 +1,16 @@
+name: Windows build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+
+    - name: Test build with config debug
+      run: ./scripts/BuildDebug.ps1
