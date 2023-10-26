@@ -13,9 +13,9 @@ namespace Xash::GUI
 	{
 		try
 		{
+			InitIcon();
 			CreateWindowClass();
 			InitWindow();
-			InitIcon();
 			mDx11.Init(hWindow);
 			ApplyDarkMode();
 		}
@@ -124,8 +124,6 @@ namespace Xash::GUI
 		{
 			throw std::runtime_error("Failed to load icon");
 		}
-		SendMessageW(hWindow, WM_SETICON, ICON_BIG, reinterpret_cast<LPARAM>(hIcon));
-		SendMessageW(hWindow, WM_SETICON, ICON_SMALL, reinterpret_cast<LPARAM>(hIcon));
 	}
 
 	void WindowManager::ApplyDarkMode()
