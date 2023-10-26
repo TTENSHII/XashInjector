@@ -1,13 +1,19 @@
 #include <windows.h>
 #include <iostream>
+#include "WindowManager.hpp"
 
-int WINAPI wWinMain(
-	HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow)
+int WINAPI
+wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow)
 {
-#ifndef NDEBUG
-	std::wcout << L"Debug mode" << std::endl;
-#else
-	std::wcout << L"Release mode" << std::endl;
-#endif
+	UNREFERENCED_PARAMETER(hPrevInstance);
+	UNREFERENCED_PARAMETER(pCmdLine);
+	UNREFERENCED_PARAMETER(nCmdShow);
+
+	Xash::GUI::WindowManager windowManager(hInstance);
+	while (windowManager.IsRunning())
+	{
+		windowManager.Update();
+		windowManager.Display();
+	}
 	return 0;
 }
