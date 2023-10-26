@@ -41,11 +41,10 @@ target_link_libraries(
     ${PROJECT_NAME}
     PRIVATE
     d3d11.lib
-    dxgi.lib
 )
 
-add_subdirectory(src)
 add_subdirectory(external)
+add_subdirectory(src)
 
 add_custom_command(
     TARGET ${PROJECT_NAME} POST_BUILD
