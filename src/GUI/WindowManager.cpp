@@ -17,6 +17,7 @@ namespace Xash::GUI
 			CreateWindowClass();
 			InitWindow();
 			mDx11.Init(hWindow);
+			mImgui.InitWin32AndDX11(hWindow, mDx11.GetDevice(), mDx11.GetDeviceContext());
 			ApplyDarkMode();
 		}
 		catch (const std::exception &e)
@@ -51,13 +52,15 @@ namespace Xash::GUI
 
 	void WindowManager::Display()
 	{
-		mDx11.Clear();
 		mDx11.Display();
 	}
 
 	void WindowManager::Update()
 	{
 		HandleWindowMessages();
+		mDx11.Clear();
+		mImgui.Draw();
+		mImgui.Render();
 	}
 
 	// PRIVATE METHODS

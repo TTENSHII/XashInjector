@@ -2,6 +2,7 @@
 
 #include <windows.h>
 #include "DirectX11.hpp"
+#include "Imgui.hpp"
 
 namespace Xash
 {
@@ -38,6 +39,7 @@ namespace Xash
 			WNDCLASSEXW mWindowClass = {0};
 
 			DirectX11 mDx11;
+			Imgui mImgui;
 
 			BOOL bIsDarkMode = TRUE;
 			bool bIsRunning = true;
