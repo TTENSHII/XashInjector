@@ -12,6 +12,16 @@ namespace Xash::GUI
 		InitRenderTargets();
 	}
 
+	Microsoft::WRL::ComPtr<ID3D11Device> DirectX11::GetDevice() const
+	{
+		return mDx11Device;
+	}
+
+	Microsoft::WRL::ComPtr<ID3D11DeviceContext> DirectX11::GetDeviceContext() const
+	{
+		return mDx11DeviceContext;
+	}
+
 	void DirectX11::Display()
 	{
 		// Vsync enabled
@@ -57,8 +67,6 @@ namespace Xash::GUI
 		swapChainDesc.BufferDesc.Width = 0;
 		swapChainDesc.BufferDesc.Height = 0;
 		swapChainDesc.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
-		swapChainDesc.BufferDesc.RefreshRate.Numerator = 60;
-		swapChainDesc.BufferDesc.RefreshRate.Denominator = 1;
 		swapChainDesc.Flags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;
 		swapChainDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
 		swapChainDesc.OutputWindow = hwnd;
