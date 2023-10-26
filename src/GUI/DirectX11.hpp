@@ -15,6 +15,9 @@ namespace Xash::GUI
 		void Display();
 		void Clear();
 
+		Microsoft::WRL::ComPtr<ID3D11Device> GetDevice() const;
+		Microsoft::WRL::ComPtr<ID3D11DeviceContext> GetDeviceContext() const;
+
 	private:
 		void InitRenderTargets();
 		void CreateDevice(DXGI_SWAP_CHAIN_DESC swapChainDesc);
