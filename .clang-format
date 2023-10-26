@@ -1,9 +1,9 @@
 Language: Cpp
-BasedOnStyle: LLVM
+BasedOnStyle: Microsoft
 PointerAlignment: Right
 AccessModifierOffset: -4
-AlignAfterOpenBracket: DontAlign
-AlignConsecutiveDeclarations: true
+AlignAfterOpenBracket: BlockIndent
+AlignConsecutiveDeclarations: false
 AlignEscapedNewlines: Left
 AlignOperands: DontAlign
 AlignTrailingComments: true
@@ -11,6 +11,7 @@ AllowShortBlocksOnASingleLine: Empty
 AllowShortEnumsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: Inline
 AllowShortLambdasOnASingleLine: All
+BreakBeforeBraces: Custom
 BraceWrapping:
   AfterCaseLabel: true
   AfterClass: true
@@ -28,12 +29,11 @@ BraceWrapping:
   BeforeWhile: true
   IndentBraces: false
 BreakBeforeBinaryOperators: NonAssignment
-BreakBeforeBraces: Custom
 BreakInheritanceList: AfterColon
 BreakBeforeTernaryOperators: true
 BreakConstructorInitializers: BeforeComma
 BreakStringLiterals: false
-ColumnLimit: 80
+ColumnLimit: 90
 ConstructorInitializerAllOnOneLineOrOnePerLine: true
 EmptyLineBeforeAccessModifier: LogicalBlock
 IndentCaseBlocks: false
@@ -44,3 +44,5 @@ NamespaceIndentation: All
 SortIncludes: false
 SpaceBeforeCaseColon: false
 UseTab: Always
+readability-brace-packing: true
+InsertNewlineAtEOF: true
