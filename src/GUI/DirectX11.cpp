@@ -1,5 +1,5 @@
-#include "DirectX11.hpp"
 #include <stdexcept>
+#include "DirectX11.hpp"
 
 namespace Xash::GUI
 {
