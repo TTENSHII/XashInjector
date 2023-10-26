@@ -11,4 +11,5 @@ target_sources(
     PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/WindowManager.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/DirectX11.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Imgui.cpp
 )
