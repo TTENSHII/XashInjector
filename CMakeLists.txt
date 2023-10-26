@@ -4,6 +4,7 @@ set(PROJECT_NAME Xash)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_WIN32_EXECUTABLE ON)
 
 project(
     ${PROJECT_NAME}
@@ -39,7 +40,7 @@ target_include_directories(
 target_link_libraries(
     ${PROJECT_NAME}
     PRIVATE
-    d3d12.lib
+    d3d11.lib
     dxgi.lib
 )
 
