@@ -9,9 +9,6 @@ target_include_directories(
 target_sources(
     ${PROJECT_NAME}
     PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/System.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/ExternalProcAdress.cpp
 )
-
-add_subdirectory(GUI)
-add_subdirectory(injector)
-add_subdirectory(system)
