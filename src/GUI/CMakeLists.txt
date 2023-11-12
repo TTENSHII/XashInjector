@@ -12,4 +12,9 @@ target_sources(
     ${CMAKE_CURRENT_SOURCE_DIR}/WindowManager.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/DirectX11.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Imgui.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/InjectPanel.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/EjectPanel.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/SideBar.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/SettingsPanel.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/ConfigPanel.cpp
 )

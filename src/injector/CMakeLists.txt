@@ -11,4 +11,5 @@ target_sources(
     PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/MonoModule.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Assembly.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/ModsManager.cpp
 )
