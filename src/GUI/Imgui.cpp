@@ -1,5 +1,8 @@
+#include <algorithm>
 #include <stdexcept>
-#include "imgui.h"
+#include <unordered_map>
+#include <functional>
+#include "System.hpp"
 #include "Imgui.hpp"
 #include "imgui_impl_win32.h"
 #include "imgui_impl_dx11.h"
@@ -10,6 +13,7 @@ namespace Xash::GUI
 	{
 		ImGui::CreateContext();
 		ImGui::StyleColorsDark();
+		GetProcessesNames();
 	}
 
 	void Imgui::InitWin32AndDX11(
@@ -46,15 +50,46 @@ namespace Xash::GUI
 		ImGui_ImplWin32_NewFrame();
 		ImGui::NewFrame();
 
-		ImGui::SetNextWindowSize(ImGui::GetIO().DisplaySize);
-		ImGui::SetNextWindowPos(ImVec2(0, 0));
+		DrawSideBar();
+		MaximizeMainWindow();
 		ImGui::Begin(
-			"Main Window", nullptr,
-			ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize
-				| ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoTitleBar
+			"Xash", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoTitleBar
 		);
-		ImGui::Text("Xash Injector");
-
+		DrawPanels();
 		ImGui::End();
+	}
+
+	void Imgui::DrawPanels()
+	{
+		static const std::unordered_map<ActivePanel, std::function<void()>> mPanelsDrawers = {
+			{ActivePanel::INJECT, std::bind(&Imgui::DrawInjectPanel, this)},
+			{ActivePanel::EJECT, std::bind(&Imgui::DrawEjectPanel, this)},
+			{ActivePanel::CONFIG, std::bind(&Imgui::DrawConfigPanel, this)},
+			{ActivePanel::SETTINGS, std::bind(&Imgui::DrawSettingsPanel, this)}
+		};
+
+		auto it = mPanelsDrawers.find(mActivePanel);
+		if (it != mPanelsDrawers.end())
+		{
+			it->second();
+		}
+	}
+
+	void Imgui::MaximizeMainWindow()
+	{
+		ImGui::SetNextWindowSize(
+			ImVec2(ImGui::GetIO().DisplaySize.x, ImGui::GetIO().DisplaySize.y)
+		);
+		ImGui::SetNextWindowPos(mainWindowPos);
+	}
+
+	void Imgui::GetProcessesNames()
+	{
+		mProcessesNames = Xash::System::GetRunningProcessesNames();
+		std::sort(mProcessesNames.begin(), mProcessesNames.end());
+		mProcessesNames.erase(
+			std::unique(mProcessesNames.begin(), mProcessesNames.end()),
+			mProcessesNames.end()
+		);
 	}
 } // namespace Xash::GUI

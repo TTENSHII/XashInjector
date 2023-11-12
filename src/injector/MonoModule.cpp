@@ -6,7 +6,8 @@
 
 namespace Xash::Injector
 {
-	MonoModule::MonoModule(HANDLE hProcess) : _hProcess(hProcess)
+	MonoModule::MonoModule(HANDLE hProcess, const ModInfos &modInfos)
+		: _hProcess(hProcess), _modInfos(modInfos)
 	{
 		FindMonoModule();
 		_monoFunctions = {
@@ -56,8 +57,9 @@ namespace Xash::Injector
 		return true;
 	}
 
-	bool MonoModule::UnLoadMod()
+	bool MonoModule::UnLoadMod(const std::string &unloadMethod)
 	{
+		_modInfos.modUnloadMethod = unloadMethod;
 		GetMonoUnLoadMethod();
 		MonoRuntimeInvoke(_monoUnloadMethod);
 		return true;
@@ -93,7 +95,7 @@ namespace Xash::Injector
 		LPVOID returnValue = System::AllocateMemoryInProcess(_hProcess, sizeof(LPVOID));
 
 		LPVOID modAdress = System::AllocateAndWriteMemoryInProcess(
-			_hProcess, _modPath.c_str(), _modPath.size() + 1
+			_hProcess, _modInfos.modPath.c_str(), _modInfos.modPath.size() + 1
 		);
 
 		assembly.SubRsp(0x18);
@@ -147,10 +149,10 @@ namespace Xash::Injector
 		Assembly assembly;
 
 		LPVOID namespaceAdress = System::AllocateAndWriteMemoryInProcess(
-			_hProcess, _modNamespace.c_str(), _modNamespace.size() + 1
+			_hProcess, _modInfos.modNamespace.c_str(), _modInfos.modNamespace.size() + 1
 		);
 		LPVOID classNameAdress = System::AllocateAndWriteMemoryInProcess(
-			_hProcess, _modClass.c_str(), _modClass.size() + 1
+			_hProcess, _modInfos.modClass.c_str(), _modInfos.modClass.size() + 1
 		);
 
 		LPVOID returnValue = System::AllocateMemoryInProcess(_hProcess, sizeof(LPVOID));
@@ -181,7 +183,7 @@ namespace Xash::Injector
 		Assembly assembly;
 
 		LPVOID methodNameAdress = System::AllocateAndWriteMemoryInProcess(
-			_hProcess, _modInitMethod.c_str(), _modInitMethod.size() + 1
+			_hProcess, _modInfos.modInitMethod.c_str(), _modInfos.modInitMethod.size() + 1
 		);
 
 		LPVOID returnValue = System::AllocateMemoryInProcess(_hProcess, sizeof(LPVOID));
@@ -237,7 +239,7 @@ namespace Xash::Injector
 		Assembly assembly;
 
 		LPVOID methodNameAdress = System::AllocateAndWriteMemoryInProcess(
-			_hProcess, _modUnloadMethod.c_str(), _modUnloadMethod.size() + 1
+			_hProcess, _modInfos.modUnloadMethod.c_str(), _modInfos.modUnloadMethod.size() + 1
 		);
 
 		LPVOID returnValue = System::AllocateMemoryInProcess(_hProcess, sizeof(LPVOID));

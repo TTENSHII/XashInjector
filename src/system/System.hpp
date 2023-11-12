@@ -5,6 +5,7 @@
 #include <TlHelp32.h>
 #include <Vector>
 #include <string>
+#include <stdexcept>
 
 namespace Xash
 {
@@ -15,6 +16,8 @@ namespace Xash
 		DWORD GetProcessIdByName(const std::wstring &processName);
 
 		HANDLE GetProcessHandleById(DWORD processId);
+
+		HANDLE GetProcessHandleByName(const std::string &processName);
 
 		LPVOID AllocateMemoryInProcess(HANDLE hProcess, SIZE_T size);
 

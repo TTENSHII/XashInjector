@@ -60,6 +60,27 @@ HANDLE Xash::System::GetProcessHandleById(DWORD processId)
 	return processHandle;
 }
 
+HANDLE Xash::System::GetProcessHandleByName(const std::string &processName)
+{
+	std::vector<std::string> processesNames;
+	std::vector<DWORD> processesID = GetRunningProcessesId();
+
+	for (const auto &processID : processesID)
+	{
+		std::string currentProcessName = GetProcessNameByID(processID);
+		size_t lastSlash = currentProcessName.find_last_of("\\");
+		if (lastSlash != std::string::npos)
+		{
+			currentProcessName = currentProcessName.substr(lastSlash + 1);
+		}
+		if (currentProcessName == processName)
+		{
+			return GetProcessHandleById(processID);
+		}
+	}
+	throw std::runtime_error("Failed to get process handle by name");
+}
+
 LPVOID Xash::System::AllocateMemoryInProcess(HANDLE hProcess, SIZE_T size)
 {
 	LPVOID lpAddress = nullptr;

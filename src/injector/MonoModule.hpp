@@ -3,6 +3,7 @@
 #include <Windows.h>
 #include <unordered_map>
 #include <string>
+#include "ModInfos.hpp"
 
 namespace Xash
 {
@@ -11,11 +12,11 @@ namespace Xash
 		class MonoModule
 		{
 		public:
-			MonoModule(HANDLE hProcess);
+			MonoModule(HANDLE hProcess, const ModInfos &modInfos);
 			~MonoModule() = default;
 
 			bool LoadMod();
-			bool UnLoadMod();
+			bool UnLoadMod(const std::string &unloadMethod);
 
 		private:
 			void FindMonoFunctions();
@@ -40,13 +41,7 @@ namespace Xash
 			LPVOID _monoInitMethod = nullptr;
 			LPVOID _monoUnloadMethod = nullptr;
 
-            std::string _modPath = "";
-			std::string _modNamespace = "";
-			std::string _modClass = "";
-			std::string _modInitMethod = "";
-			std::string _modUnloadMethod = "";
-			std::string _targetedProcessName = "";
-
+			ModInfos _modInfos;
 			std::unordered_map<std::string, LPVOID> _monoFunctions;
 		};
 	} // namespace Injector
