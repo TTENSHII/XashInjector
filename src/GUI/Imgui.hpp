@@ -6,9 +6,11 @@
 #include <vector>
 #include <string>
 #include <utility>
+#include <functional>
 #include "ModInfos.hpp"
 #include "MonoModule.hpp"
 #include "imgui.h"
+#include "StyleSettings.hpp"
 
 namespace Xash
 {
@@ -28,6 +30,12 @@ namespace Xash
 			);
 			void Draw();
 			void Render();
+
+		// Custom ImGui Widgets
+			static void CustomColorPicker(
+				const std::string_view label, std::function<Vector4()> getter,
+				std::function<void(const Vector4 &)> setter, ImGuiCol_ colorIndex
+			);
 
 		private:
 			enum class ActivePanel : uint8_t
