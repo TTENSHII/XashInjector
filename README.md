@@ -7,26 +7,15 @@
 
 ## :blue_book: Index
 
-- [About](#about)
-- [Example](#example)
-- [Usage](#usage)
-  - [Installation](#installation)
-  - [Commands](#commands)
-- [Development](#development)
-  - [Pre-Requisites](#pre-requisites)
-  - [Development Environment](#development-environment)
-  - [File Structure](#file-structure)
-  - [Build](#build)  
-  - [Deployment](#deployment)  
-- [Community](#community)
-  - [Contribution](#contribution)
-  - [Branches](#branches)
-  - [Guideline](#guideline)  
-- [FAQ](#faq)
-- [Resources](#resources)
-- [Gallery](#gallery)
-- [Credit/Acknowledgment](#creditacknowledgment)
-- [License](#license)
+- [About](#space_invader-about)
+- [Example](#flower_playing_cards-example)
+- [Usage](#flags-usage)
+- [Installation](#package-installation)
+- [Development](#wrench-development)
+- [Contribution & Guideline](#cherry_blossom-contribution--guideline)
+- [Branches & PR](#cactus-branches--pr)
+- [Resources](#page_facing_up-resources)
+- [Usage Guidelines](#lock-usage-guidelines)
 
 </details>
 
