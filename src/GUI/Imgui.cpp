@@ -64,7 +64,6 @@ namespace Xash::GUI
 		static const std::unordered_map<ActivePanel, std::function<void()>> mPanelsDrawers = {
 			{ActivePanel::INJECT, std::bind(&Imgui::DrawInjectPanel, this)},
 			{ActivePanel::EJECT, std::bind(&Imgui::DrawEjectPanel, this)},
-			{ActivePanel::CONFIG, std::bind(&Imgui::DrawConfigPanel, this)},
 			{ActivePanel::SETTINGS, std::bind(&Imgui::DrawSettingsPanel, this)}
 		};
 

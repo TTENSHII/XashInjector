@@ -34,7 +34,6 @@ namespace Xash
 			{
 				INJECT,
 				EJECT,
-				CONFIG,
 				SETTINGS
 			};
 
@@ -56,9 +55,6 @@ namespace Xash
 				const Injector::ModInfos &modInfos,
 				const std::pair<Injector::ModInfos, Injector::MonoModule> &loadedMod
 			);
-
-			// CONFIG
-			void DrawConfigPanel();
 
 			// SETTINGS
 			void DrawSettingsPanel();

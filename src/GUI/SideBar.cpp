@@ -35,7 +35,6 @@ void Xash::GUI::Imgui::DrawSideBar()
 	static std::unordered_map<ActivePanel, std::string> panelNames = {
         { ActivePanel::INJECT, "Inject" },
         { ActivePanel::EJECT, "Loaded Dll" },
-        { ActivePanel::CONFIG, "Config" },
         { ActivePanel::SETTINGS, "Settings" }
     };
 

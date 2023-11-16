@@ -16,5 +16,4 @@ target_sources(
     ${CMAKE_CURRENT_SOURCE_DIR}/EjectPanel.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/SideBar.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/SettingsPanel.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/ConfigPanel.cpp
 )
