@@ -14,6 +14,7 @@
 - [Development](#wrench-development)
 - [Contribution & Guideline](#cherry_blossom-contribution--guideline)
 - [Branches & PR](#cactus-branches--pr)
+- [Making mods](#gem-Making-mods)
 - [Resources](#page_facing_up-resources)
 - [Usage Guidelines](#lock-usage-guidelines)
 
@@ -161,6 +162,23 @@ Welcome to the XashInjector project! We appreciate your interest in contributing
   - Add correct labels such as `bug fix`, `enhancement`, `GUI`, `documentation`...
   - Ensure the PR passes all continuous integration checks and receives positive feedback.
   - After successful checks and approval, the changes will be merged.
+
+## :gem: Making mods
+While I won't provide an in-depth tutorial on mod creation, here are some essential tips for beginners:
+
+  - **C# .NET development:**
+Have knowledge of C# or other object-oriented programming languages.
+Install tools to compile the code into a dll Class Library (.NET Framework).
+
+  - **Mod Project Setup:**
+When initiating your mod project, choose "Class Library (NET Framework)."
+Make sure that the .NET Framework version is the same of the targeted game.
+You can usually find this information in the game files.
+
+  - **Resource Exploration:**
+Explore mod development through various resources.
+Watch videos, read articles, or participate in forums dedicated to modding.
+Enjoy the learning process and have fun experimenting with your creations!
 
 ##  :page_facing_up: Resources
 
