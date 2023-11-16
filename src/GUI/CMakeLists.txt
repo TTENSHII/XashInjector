@@ -17,3 +17,5 @@ target_sources(
     ${CMAKE_CURRENT_SOURCE_DIR}/SideBar.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/SettingsPanel.cpp
 )
+
+add_subdirectory(Components)
