@@ -26,7 +26,7 @@ It enables the injection of assemblies (such as .NET DLLs) into a selected proce
 Designed primarily for 64-bit applications, there are plans to extend support to 32-bit applications.
 
 ##  :flower_playing_cards: Example
-![image](https://github.com/TTENSHII/XashInjector/assets/87119012/7818aab2-d6ab-4556-89af-731fd0ba7a11)
+![image](https://github.com/TTENSHII/XashInjector/assets/87119012/c685003e-ef73-4436-aa92-3ebc5b1c102a)
 
 ## :flags: Usage
 
