@@ -15,3 +15,4 @@ target_sources(
 add_subdirectory(GUI)
 add_subdirectory(injector)
 add_subdirectory(system)
+add_subdirectory(settings)
