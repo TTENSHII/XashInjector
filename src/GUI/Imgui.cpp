@@ -14,6 +14,7 @@ namespace Xash::GUI
 		ImGui::CreateContext();
 		ImGui::StyleColorsDark();
 		GetProcessesNames();
+		ApplyThemePreset();
 	}
 
 	void Imgui::InitWin32AndDX11(
@@ -90,5 +91,28 @@ namespace Xash::GUI
 			std::unique(mProcessesNames.begin(), mProcessesNames.end()),
 			mProcessesNames.end()
 		);
+	}
+
+	void Imgui::ApplyThemePreset()
+	{
+		auto &imguiStyle = ImGui::GetStyle();
+		const auto &xashStyle = Settings::StyleSettings::GetInstance();
+
+		imguiStyle.Colors[ImGuiCol_WindowBg] = {
+			xashStyle.GetBackgroundColor().x, xashStyle.GetBackgroundColor().y,
+			xashStyle.GetBackgroundColor().z, xashStyle.GetBackgroundColor().w
+		};
+		imguiStyle.Colors[ImGuiCol_Text] = {
+			xashStyle.GetTextColor().x, xashStyle.GetTextColor().y,
+			xashStyle.GetTextColor().z, xashStyle.GetTextColor().w
+		};
+		imguiStyle.Colors[ImGuiCol_Border] = {
+			xashStyle.GetBorderColor().x, xashStyle.GetBorderColor().y,
+			xashStyle.GetBorderColor().z, xashStyle.GetBorderColor().w
+		};
+		imguiStyle.Colors[ImGuiCol_Button] = {
+			xashStyle.GetButtonColor().x, xashStyle.GetButtonColor().y,
+			xashStyle.GetButtonColor().z, xashStyle.GetButtonColor().w
+		};
 	}
 } // namespace Xash::GUI

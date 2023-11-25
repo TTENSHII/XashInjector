@@ -67,6 +67,9 @@ namespace Xash
 			// SETTINGS
 			void DrawSettingsPanel();
 
+			// Themes
+			void ApplyThemePreset();
+
 			Injector::ModInfos mModInfos;
 			std::size_t mSelectedProcessIndex = 0;
 			std::vector<std::string> mProcessesNames;

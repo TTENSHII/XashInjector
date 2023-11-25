@@ -42,10 +42,10 @@ namespace Xash
 			StyleSettings() = default;
 			~StyleSettings() = default;
 
-			Vector4 mBackgroundColor = {0.0f, 0.0f, 0.0f, 1.0f};
+			Vector4 mBackgroundColor = {0.088f, 0.084f, 0.098f, 1.0f};
 			Vector4 mTextColor = {1.0f, 1.0f, 1.0f, 1.0f};
-			Vector4 mBorderColor = {0.5f, 0.5f, 0.5f, 1.0f};
-			Vector4 mButtonColor = {0.2f, 0.8f, 0.2f, 1.0f};
+			Vector4 mBorderColor = {0.538f, 0.538f, 0.538f, 1.0f};
+			Vector4 mButtonColor = {0.321f, 0.112f, 0.734f, 1.0f};
 		};
 	} // namespace Settings
 } // namespace Xash
