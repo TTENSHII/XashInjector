@@ -1,8 +1,10 @@
 #include <string>
+#include <functional>
 #include "imgui.h"
 #include "Imgui.hpp"
 #include "XashSettings.hpp"
 #include "StyleSettings.hpp"
+#include "ThemePresets.hpp"
 
 namespace Xash
 {
@@ -41,11 +43,49 @@ namespace Xash
 			);
 		}
 
+		// All theme presets with associated functions
+		std::unordered_map<std::string, std::function<void()>> colorPresets = {
+			{"Default", Themes::SetDefaultColors},
+			{"Arcade", Themes::SetArcadeColors},
+			{"BlackAndWhite", Themes::SetBlackAndWhiteColors},
+			{"Purple", Themes::SetPurpleColors},
+			{"Ocean", Themes::SetOceanColors}
+		};
+
+		static void SetColors(const std::string &presetName)
+		{
+			auto &style = Settings::StyleSettings::GetInstance();
+
+			auto preset = colorPresets.find(presetName);
+			if (preset != colorPresets.end())
+			{
+				preset->second();
+			}
+		}
+
+		static void ThemePresets(const std::function<void()>& ApplyThemePreset)
+		{
+			for (const auto &preset : colorPresets)
+			{
+				if (ImGui::Button(preset.first.c_str()))
+				{
+					SetColors(preset.first);
+					ApplyThemePreset();
+				}
+				ImGui::SameLine();
+			}
+		}
+
 		void Imgui::DrawSettingsPanel()
 		{
 			if (ImGui::CollapsingHeader("Custom Theme"))
 			{
 				customTheme();
+			}
+			if (ImGui::CollapsingHeader("Theme Presets"))
+			{
+				auto applyThemefunc = [this]() {ApplyThemePreset();};
+            	ThemePresets(applyThemefunc);
 			}
 		}
 	} // namespace GUI
