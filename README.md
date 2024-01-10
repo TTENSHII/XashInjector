@@ -43,6 +43,17 @@ Designed primarily for 64-bit applications, there are plans to extend support to
   - Navigate to the "Loaded dll" panel.
   - Click the "Eject" button of the correct assemblies.
 
+## :sparkles: Themes
+You can configure the application theme.
+You can choose from a range of predefined themes or colour-by-colour themes.
+For the moment, the theme is not saved; this feature is coming on the json-save branch.
+
+![Arcade](https://github.com/TTENSHII/XashInjector/assets/87119012/5c23fdc9-3176-4c5f-9bf0-66eba2fec862)
+![BW](https://github.com/TTENSHII/XashInjector/assets/87119012/ad809c2c-2937-4a30-99d3-1e1c1b4d4a27)
+![Purple](https://github.com/TTENSHII/XashInjector/assets/87119012/5061537e-a385-4a31-bf0d-68c33dfb4528)
+![Default](https://github.com/TTENSHII/XashInjector/assets/87119012/1f22363d-8eb0-418e-9b78-fcd19875ee64)
+![Ocean](https://github.com/TTENSHII/XashInjector/assets/87119012/84084461-64b2-4fda-948b-d8ffc17f1757)
+
 ## :package: Installation
 
 - **Obtaining Binaries:**
